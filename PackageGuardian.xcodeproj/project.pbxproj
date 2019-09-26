@@ -17,6 +17,7 @@
 		32512D94232C7AA200E71DB5 /* PackageGuardianTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32512D93232C7AA200E71DB5 /* PackageGuardianTests.swift */; };
 		32512D9F232C7AA200E71DB5 /* PackageGuardianUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32512D9E232C7AA200E71DB5 /* PackageGuardianUITests.swift */; };
 		32512DAD232C7F4800E71DB5 /* ActivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32512DAC232C7F4800E71DB5 /* ActivateViewController.swift */; };
+		328A4CC3233CFD6B00A1CC3F /* WifiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328A4CC2233CFD6B00A1CC3F /* WifiViewController.swift */; };
 		32AC5FE4232DE65800789457 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32AC5FE3232DE65800789457 /* CoreBluetooth.framework */; };
 		4772AF838DE13E15F37B7626 /* Pods_PackageGuardian.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 591BAF248337C78359FC4BC5 /* Pods_PackageGuardian.framework */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		32512D9E232C7AA200E71DB5 /* PackageGuardianUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageGuardianUITests.swift; sourceTree = "<group>"; };
 		32512DA0232C7AA200E71DB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32512DAC232C7F4800E71DB5 /* ActivateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateViewController.swift; sourceTree = "<group>"; };
+		328A4CC2233CFD6B00A1CC3F /* WifiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiViewController.swift; sourceTree = "<group>"; };
 		32AC5FE3232DE65800789457 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		3C88D7E4D2D00CB841279654 /* Pods-PackageGuardianTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PackageGuardianTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PackageGuardianTests/Pods-PackageGuardianTests.debug.xcconfig"; sourceTree = "<group>"; };
 		51F05FE8555E611ED373BAE7 /* Pods-PackageGuardianTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PackageGuardianTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PackageGuardianTests/Pods-PackageGuardianTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				32512D7E232C7AA100E71DB5 /* AppDelegate.swift */,
 				32512D80232C7AA100E71DB5 /* ViewController.swift */,
 				32512D82232C7AA100E71DB5 /* Main.storyboard */,
+				328A4CC2233CFD6B00A1CC3F /* WifiViewController.swift */,
 				32512DAC232C7F4800E71DB5 /* ActivateViewController.swift */,
 				32512D85232C7AA200E71DB5 /* Assets.xcassets */,
 				32512D87232C7AA200E71DB5 /* LaunchScreen.storyboard */,
@@ -401,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32512D81232C7AA100E71DB5 /* ViewController.swift in Sources */,
+				328A4CC3233CFD6B00A1CC3F /* WifiViewController.swift in Sources */,
 				32512DAD232C7F4800E71DB5 /* ActivateViewController.swift in Sources */,
 				32512D7F232C7AA100E71DB5 /* AppDelegate.swift in Sources */,
 			);

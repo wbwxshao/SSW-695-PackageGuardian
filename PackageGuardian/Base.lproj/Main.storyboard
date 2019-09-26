@@ -81,11 +81,11 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="95Q-j2-B7E">
-                                <rect key="frame" x="16" y="161" width="343" height="622"/>
+                                <rect key="frame" x="16" y="161" width="343" height="584"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="KUc-Yz-NqP"/>
-                                    <constraint firstAttribute="height" constant="622" id="M2G-nA-0De"/>
+                                    <constraint firstAttribute="height" constant="584" id="M2G-nA-0De"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="blq-2S-RX3">
@@ -98,15 +98,30 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oq5-f7-lXB">
+                                <rect key="frame" x="8" y="753" width="360" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ktz-go-Pu5"/>
+                                    <constraint firstAttribute="width" constant="360" id="Zp7-tc-QNr"/>
+                                </constraints>
+                                <state key="normal" title="Having touble connect via bluetooth? Try using WiFi."/>
+                                <connections>
+                                    <segue destination="KYS-wV-dNR" kind="show" id="7fv-AY-yT8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nPu-bF-8Hm" firstAttribute="bottom" secondItem="Krz-Qa-sgf" secondAttribute="bottom" constant="643" id="2R5-dR-3Mg"/>
                             <constraint firstItem="Krz-Qa-sgf" firstAttribute="top" secondItem="nPu-bF-8Hm" secondAttribute="top" constant="17" id="6W4-DT-JcR"/>
                             <constraint firstItem="Krz-Qa-sgf" firstAttribute="leading" secondItem="nPu-bF-8Hm" secondAttribute="leading" constant="100" id="6g3-We-BMe"/>
+                            <constraint firstItem="oq5-f7-lXB" firstAttribute="top" secondItem="95Q-j2-B7E" secondAttribute="bottom" constant="8" id="7id-ni-4bg"/>
+                            <constraint firstItem="oq5-f7-lXB" firstAttribute="leading" secondItem="nPu-bF-8Hm" secondAttribute="leading" constant="8" id="BOJ-63-oDw"/>
                             <constraint firstItem="95Q-j2-B7E" firstAttribute="top" secondItem="Krz-Qa-sgf" secondAttribute="bottom" constant="26" id="Gg4-bT-Cfz"/>
                             <constraint firstItem="nPu-bF-8Hm" firstAttribute="trailing" secondItem="Krz-Qa-sgf" secondAttribute="trailing" constant="101" id="P2s-cs-32U"/>
-                            <constraint firstAttribute="bottom" secondItem="95Q-j2-B7E" secondAttribute="bottom" constant="29" id="cky-cw-iGn"/>
+                            <constraint firstItem="nPu-bF-8Hm" firstAttribute="trailing" secondItem="oq5-f7-lXB" secondAttribute="trailing" constant="7" id="aZo-Vr-AhX"/>
+                            <constraint firstAttribute="bottom" secondItem="95Q-j2-B7E" secondAttribute="bottom" constant="67" id="cky-cw-iGn"/>
+                            <constraint firstAttribute="bottom" secondItem="oq5-f7-lXB" secondAttribute="bottom" constant="29" id="fE5-bp-lfV"/>
                             <constraint firstItem="nPu-bF-8Hm" firstAttribute="trailing" secondItem="95Q-j2-B7E" secondAttribute="trailing" constant="16" id="gU7-WR-HJL"/>
                             <constraint firstItem="95Q-j2-B7E" firstAttribute="leading" secondItem="nPu-bF-8Hm" secondAttribute="leading" constant="16" id="mO5-vQ-2aQ"/>
                         </constraints>
@@ -120,6 +135,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uG4-YG-NvE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2084" y="104.92610837438424"/>
+        </scene>
+        <!--Wifi View Controller-->
+        <scene sceneID="UAn-KB-5eU">
+            <objects>
+                <viewController storyboardIdentifier="wifi" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KYS-wV-dNR" customClass="WifiViewController" customModule="PackageGuardian" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="U0y-Br-ajk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First, please connect to WiFi with name start with&quot;RaspberryPi&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdc-Ca-jWO">
+                                <rect key="frame" x="16" y="353" width="343" height="107"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="Zd4-IU-BSD"/>
+                                    <constraint firstAttribute="height" constant="107" id="fff-4B-Xmg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After that, please press the connect button." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biZ-qD-E9M">
+                                <rect key="frame" x="16" y="468" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="2CL-dO-oV9"/>
+                                    <constraint firstAttribute="height" constant="21" id="Civ-pl-IQV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5x-vT-roA">
+                                <rect key="frame" x="158" y="530" width="59" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1Fd-Sm-Mlv"/>
+                                    <constraint firstAttribute="width" constant="59" id="fYh-nv-zGY"/>
+                                </constraints>
+                                <state key="normal" title="Connect"/>
+                                <connections>
+                                    <action selector="connect:" destination="KYS-wV-dNR" eventType="touchUpInside" id="u9k-qV-1N6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="biZ-qD-E9M" firstAttribute="top" secondItem="Mdc-Ca-jWO" secondAttribute="bottom" constant="8" id="1L8-OY-5Xf"/>
+                            <constraint firstItem="FeN-Ap-PDu" firstAttribute="trailing" secondItem="x5x-vT-roA" secondAttribute="trailing" constant="158" id="Dk4-7d-YTn"/>
+                            <constraint firstItem="FeN-Ap-PDu" firstAttribute="trailing" secondItem="Mdc-Ca-jWO" secondAttribute="trailing" constant="16" id="Fdu-lH-y7e"/>
+                            <constraint firstItem="FeN-Ap-PDu" firstAttribute="trailing" secondItem="biZ-qD-E9M" secondAttribute="trailing" constant="16" id="GGj-Ub-zPS"/>
+                            <constraint firstItem="FeN-Ap-PDu" firstAttribute="bottom" secondItem="Mdc-Ca-jWO" secondAttribute="bottom" constant="318" id="JeO-22-g5L"/>
+                            <constraint firstItem="biZ-qD-E9M" firstAttribute="leading" secondItem="FeN-Ap-PDu" secondAttribute="leading" constant="16" id="LWc-Uk-ZBF"/>
+                            <constraint firstItem="x5x-vT-roA" firstAttribute="top" secondItem="biZ-qD-E9M" secondAttribute="bottom" constant="41" id="LcV-d9-m7e"/>
+                            <constraint firstItem="FeN-Ap-PDu" firstAttribute="bottom" secondItem="x5x-vT-roA" secondAttribute="bottom" constant="218" id="a67-Nq-KUb"/>
+                            <constraint firstItem="x5x-vT-roA" firstAttribute="leading" secondItem="FeN-Ap-PDu" secondAttribute="leading" constant="158" id="aoR-2Q-6kE"/>
+                            <constraint firstItem="x5x-vT-roA" firstAttribute="top" secondItem="biZ-qD-E9M" secondAttribute="bottom" constant="41" id="iLm-xh-Szs"/>
+                            <constraint firstItem="Mdc-Ca-jWO" firstAttribute="leading" secondItem="FeN-Ap-PDu" secondAttribute="leading" constant="16" id="mFA-On-Q0M"/>
+                            <constraint firstItem="Mdc-Ca-jWO" firstAttribute="top" secondItem="FeN-Ap-PDu" secondAttribute="top" constant="265" id="uVC-8o-jeM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FeN-Ap-PDu"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mFK-ma-Bud" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2981.5999999999999" y="135.96059113300493"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9vW-a6-aqu">
