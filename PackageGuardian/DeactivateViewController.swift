@@ -1,13 +1,13 @@
 //
-//  WifiViewController.swift
+//  DeactivateViewController.swift
 //  PackageGuardian
 //
-//  Created by godlikeMini on 9/26/19.
+//  Created by godlikeMini on 10/15/19.
 //  Copyright © 2019 SSW695. All rights reserved.
 //
 
 import UIKit
-class WifiViewController: ViewController {
+class DeactivateViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,11 +15,11 @@ class WifiViewController: ViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    @IBAction func connect(_ sender: Any) {
+    @IBAction func deactivate(_ sender: Any) {
         mqttClient.connect()
-        mqttClient.publish("rpi/gpio", withString: "on")
+        mqttClient.publish("rpi/gpio", withString: "off")
     }
+    
     /*
     // MARK: - Navigation
 

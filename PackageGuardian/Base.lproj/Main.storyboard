@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fGR-Ub-xRk">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fGR-Ub-xRk">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,6 +23,14 @@
                                     <constraint firstAttribute="height" constant="50" id="u2c-5N-2ZM"/>
                                 </constraints>
                                 <state key="normal" title="Receive"/>
+                                <connections>
+                                    <segue destination="mVe-Vz-RI8" kind="show" id="gm2-Wg-4gt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aC-tG-6Co">
+                                <rect key="frame" x="26" y="511" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uY-Ts-gw2">
                                 <rect key="frame" x="16" y="425" width="343" height="50"/>
@@ -61,6 +66,55 @@
             </objects>
             <point key="canvasLocation" x="844" y="91.625615763546804"/>
         </scene>
+        <!--Deactivate View Controller-->
+        <scene sceneID="VZf-Og-wzo">
+            <objects>
+                <viewController id="mVe-Vz-RI8" customClass="DeactivateViewController" customModule="PackageGuardian" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a19-hf-p2z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you have successfully received the package, please press the deactivate button below." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYC-Ck-rRb">
+                                <rect key="frame" x="16" y="276.33333333333331" width="343" height="27.666666666666686"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27.670000000000002" id="2NF-qP-pRl"/>
+                                    <constraint firstAttribute="width" constant="343" id="jGW-KZ-zvG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooO-7t-uNq">
+                                <rect key="frame" x="141" y="390" width="94" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="qq8-AH-kal"/>
+                                    <constraint firstAttribute="height" constant="36" id="vP0-UB-TtA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Deactivate"/>
+                                <connections>
+                                    <action selector="deactivate:" destination="mVe-Vz-RI8" eventType="touchUpInside" id="AcC-v0-6pe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="T7J-BM-B4p" firstAttribute="bottom" secondItem="ooO-7t-uNq" secondAttribute="bottom" constant="352" id="25E-cu-YV8"/>
+                            <constraint firstItem="YYC-Ck-rRb" firstAttribute="leading" secondItem="T7J-BM-B4p" secondAttribute="leading" constant="16" id="MOG-cm-h3O"/>
+                            <constraint firstItem="T7J-BM-B4p" firstAttribute="trailing" secondItem="YYC-Ck-rRb" secondAttribute="trailing" constant="16" id="N2h-xv-JWq"/>
+                            <constraint firstItem="ooO-7t-uNq" firstAttribute="leading" secondItem="T7J-BM-B4p" secondAttribute="leading" constant="141" id="Nhb-xu-uGv"/>
+                            <constraint firstItem="T7J-BM-B4p" firstAttribute="trailing" secondItem="ooO-7t-uNq" secondAttribute="trailing" constant="140" id="RPB-OZ-1Xx"/>
+                            <constraint firstItem="ooO-7t-uNq" firstAttribute="top" secondItem="YYC-Ck-rRb" secondAttribute="bottom" constant="86" id="UjF-9H-mZk"/>
+                            <constraint firstItem="YYC-Ck-rRb" firstAttribute="top" secondItem="T7J-BM-B4p" secondAttribute="top" constant="188.33000000000001" id="klG-qg-5Zz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="T7J-BM-B4p"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZeT-hB-bEQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nwu-9w-ka7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="837.60000000000002" y="743.3497536945813"/>
+        </scene>
         <!--Activate View Controller-->
         <scene sceneID="QXn-bx-rDh">
             <objects>
@@ -89,10 +143,10 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="blq-2S-RX3">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="343" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="blq-2S-RX3" id="Kou-uY-N95">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -154,7 +208,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After that, please press the connect button." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biZ-qD-E9M">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After that, please press the activate button." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biZ-qD-E9M">
                                 <rect key="frame" x="16" y="468" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="2CL-dO-oV9"/>
@@ -170,7 +224,7 @@
                                     <constraint firstAttribute="height" constant="30" id="1Fd-Sm-Mlv"/>
                                     <constraint firstAttribute="width" constant="59" id="fYh-nv-zGY"/>
                                 </constraints>
-                                <state key="normal" title="Connect"/>
+                                <state key="normal" title="Activate"/>
                                 <connections>
                                     <action selector="connect:" destination="KYS-wV-dNR" eventType="touchUpInside" id="u9k-qV-1N6"/>
                                 </connections>
