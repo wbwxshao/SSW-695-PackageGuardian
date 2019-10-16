@@ -27,11 +27,6 @@
                                     <segue destination="mVe-Vz-RI8" kind="show" id="gm2-Wg-4gt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aC-tG-6Co">
-                                <rect key="frame" x="26" y="511" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uY-Ts-gw2">
                                 <rect key="frame" x="16" y="425" width="343" height="50"/>
                                 <color key="backgroundColor" red="0.014679425059999999" green="0.63461555059999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -190,10 +185,10 @@
             </objects>
             <point key="canvasLocation" x="2084" y="104.92610837438424"/>
         </scene>
-        <!--Wifi View Controller-->
+        <!--View Controller-->
         <scene sceneID="UAn-KB-5eU">
             <objects>
-                <viewController storyboardIdentifier="wifi" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KYS-wV-dNR" customClass="WifiViewController" customModule="PackageGuardian" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="wifi" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KYS-wV-dNR" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U0y-Br-ajk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -208,7 +203,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After that, please press the activate button." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biZ-qD-E9M">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After that, please press the Next button." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biZ-qD-E9M">
                                 <rect key="frame" x="16" y="468" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="2CL-dO-oV9"/>
@@ -224,9 +219,9 @@
                                     <constraint firstAttribute="height" constant="30" id="1Fd-Sm-Mlv"/>
                                     <constraint firstAttribute="width" constant="59" id="fYh-nv-zGY"/>
                                 </constraints>
-                                <state key="normal" title="Activate"/>
+                                <state key="normal" title="Next"/>
                                 <connections>
-                                    <action selector="connect:" destination="KYS-wV-dNR" eventType="touchUpInside" id="u9k-qV-1N6"/>
+                                    <segue destination="8Oy-6d-g6i" kind="show" id="rrB-Kc-R4Q"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -250,7 +245,44 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mFK-ma-Bud" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2981.5999999999999" y="135.96059113300493"/>
+            <point key="canvasLocation" x="3004" y="105"/>
+        </scene>
+        <!--Wifi View Controller-->
+        <scene sceneID="CvE-Da-DfB">
+            <objects>
+                <viewController id="8Oy-6d-g6i" customClass="WifiViewController" customModule="PackageGuardian" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qoW-bJ-gjJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJ3-Ym-7eg">
+                                <rect key="frame" x="159.66666666666666" y="391" width="56" height="30"/>
+                                <state key="normal" title="Activate"/>
+                                <connections>
+                                    <action selector="connect:" destination="8Oy-6d-g6i" eventType="touchUpInside" id="eNI-vP-23n"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ib1-VK-l5a">
+                                <rect key="frame" x="16" y="137" width="343" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="OJ3-Ym-7eg" firstAttribute="centerY" secondItem="qoW-bJ-gjJ" secondAttribute="centerY" id="Ad3-We-kbG"/>
+                            <constraint firstItem="OJ3-Ym-7eg" firstAttribute="centerX" secondItem="qoW-bJ-gjJ" secondAttribute="centerX" id="b9S-eR-EBC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LRj-gq-tfL"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="U0j-KN-wI2"/>
+                    <connections>
+                        <outlet property="addressSearch" destination="ib1-VK-l5a" id="uff-iL-Gdb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OLK-fl-0Rf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3844" y="103.44827586206897"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9vW-a6-aqu">
