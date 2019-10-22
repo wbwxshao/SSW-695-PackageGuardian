@@ -1,1 +1,18 @@
-language: Swift
+matrix:
+  include:
+    - language: python
+      python: 3.7
+      dist: xenial
+      before_script:
+        - cd Pi/p_test
+      script:
+        - python -m unittest discover
+
+    - language: swift
+      os: osx
+      osx_image: xcode11.1
+      before_script:
+        - cd ios/AppName
+      script:
+        - xcodebuild -workspace AppName.xcworkspace -scheme AppName
+          -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3' build test
