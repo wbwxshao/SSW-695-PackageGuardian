@@ -15,9 +15,10 @@ os.system('modprobe w1-therm')
 
 def connectionStatus(client, userdata, flags, rc):
     mqttClient.subscribe("rpi/gpio")
-
+    mqttClient.subscribe("gps/lat")
 def messageDecoder(client, userdata, msg):
     message = msg.payload.decode(encoding='UTF-8')
+    print(message)
     if message == "on":
         runGPS()
         print("GPS is ON!")

@@ -8,13 +8,16 @@
 
 import UIKit
 import CoreLocation
+import Firebase
 class WifiViewController: ViewController {
     
     @IBOutlet weak var addressSearch: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        ref.child("users").setValue(["username": "wxs"])
         // Do any additional setup after loading the view.
     }
     

@@ -6,6 +6,8 @@ target 'PackageGuardian' do
   use_frameworks!
   # Pods for PackageGuardian
 pod 'CocoaMQTT'
+pod 'Firebase/Auth'
+pod 'Firebase/Database'
   target 'PackageGuardianTests' do
     inherit! :search_paths
     # Pods for testing

@@ -39,7 +39,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="3mH-BC-Xnf" kind="show" id="f7p-66-9GJ"/>
+                                    <segue destination="KYS-wV-dNR" kind="show" id="yim-DO-LhF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -119,7 +119,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Krz-Qa-sgf">
-                                <rect key="frame" x="100" y="105" width="174" height="30"/>
+                                <rect key="frame" x="100" y="61" width="174" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="174" id="X9h-QT-tL0"/>
                                     <constraint firstAttribute="height" constant="30" id="eoN-Qs-HmS"/>
@@ -130,7 +130,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="95Q-j2-B7E">
-                                <rect key="frame" x="16" y="161" width="343" height="584"/>
+                                <rect key="frame" x="16" y="117" width="343" height="584"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="KUc-Yz-NqP"/>
@@ -148,15 +148,12 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oq5-f7-lXB">
-                                <rect key="frame" x="8" y="753" width="360" height="30"/>
+                                <rect key="frame" x="8" y="709" width="360" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Ktz-go-Pu5"/>
                                     <constraint firstAttribute="width" constant="360" id="Zp7-tc-QNr"/>
                                 </constraints>
                                 <state key="normal" title="Having touble connect via bluetooth? Try using WiFi."/>
-                                <connections>
-                                    <segue destination="KYS-wV-dNR" kind="show" id="7fv-AY-yT8"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -183,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uG4-YG-NvE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2084" y="104.92610837438424"/>
+            <point key="canvasLocation" x="2078" y="-581"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="UAn-KB-5eU">
@@ -193,8 +190,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First, please connect to WiFi with name start with&quot;RaspberryPi&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdc-Ca-jWO">
-                                <rect key="frame" x="16" y="353" width="343" height="107"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First, please select address of the package." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mdc-Ca-jWO">
+                                <rect key="frame" x="16" y="107" width="343" height="107"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="Zd4-IU-BSD"/>
                                     <constraint firstAttribute="height" constant="107" id="fff-4B-Xmg"/>
@@ -204,7 +201,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After that, please press the Next button." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biZ-qD-E9M">
-                                <rect key="frame" x="16" y="468" width="343" height="21"/>
+                                <rect key="frame" x="16" y="222" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="2CL-dO-oV9"/>
                                     <constraint firstAttribute="height" constant="21" id="Civ-pl-IQV"/>
@@ -214,7 +211,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5x-vT-roA">
-                                <rect key="frame" x="158" y="530" width="59" height="30"/>
+                                <rect key="frame" x="158" y="748" width="59" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="1Fd-Sm-Mlv"/>
                                     <constraint firstAttribute="width" constant="59" id="fYh-nv-zGY"/>
@@ -231,21 +228,22 @@
                             <constraint firstItem="FeN-Ap-PDu" firstAttribute="trailing" secondItem="x5x-vT-roA" secondAttribute="trailing" constant="158" id="Dk4-7d-YTn"/>
                             <constraint firstItem="FeN-Ap-PDu" firstAttribute="trailing" secondItem="Mdc-Ca-jWO" secondAttribute="trailing" constant="16" id="Fdu-lH-y7e"/>
                             <constraint firstItem="FeN-Ap-PDu" firstAttribute="trailing" secondItem="biZ-qD-E9M" secondAttribute="trailing" constant="16" id="GGj-Ub-zPS"/>
-                            <constraint firstItem="FeN-Ap-PDu" firstAttribute="bottom" secondItem="Mdc-Ca-jWO" secondAttribute="bottom" constant="318" id="JeO-22-g5L"/>
+                            <constraint firstItem="FeN-Ap-PDu" firstAttribute="bottom" secondItem="Mdc-Ca-jWO" secondAttribute="bottom" constant="564" id="JeO-22-g5L"/>
                             <constraint firstItem="biZ-qD-E9M" firstAttribute="leading" secondItem="FeN-Ap-PDu" secondAttribute="leading" constant="16" id="LWc-Uk-ZBF"/>
-                            <constraint firstItem="x5x-vT-roA" firstAttribute="top" secondItem="biZ-qD-E9M" secondAttribute="bottom" constant="41" id="LcV-d9-m7e"/>
-                            <constraint firstItem="FeN-Ap-PDu" firstAttribute="bottom" secondItem="x5x-vT-roA" secondAttribute="bottom" constant="218" id="a67-Nq-KUb"/>
+                            <constraint firstItem="x5x-vT-roA" firstAttribute="top" secondItem="biZ-qD-E9M" secondAttribute="bottom" constant="505" id="LcV-d9-m7e"/>
+                            <constraint firstItem="FeN-Ap-PDu" firstAttribute="bottom" secondItem="x5x-vT-roA" secondAttribute="bottom" id="a67-Nq-KUb"/>
                             <constraint firstItem="x5x-vT-roA" firstAttribute="leading" secondItem="FeN-Ap-PDu" secondAttribute="leading" constant="158" id="aoR-2Q-6kE"/>
-                            <constraint firstItem="x5x-vT-roA" firstAttribute="top" secondItem="biZ-qD-E9M" secondAttribute="bottom" constant="41" id="iLm-xh-Szs"/>
+                            <constraint firstItem="x5x-vT-roA" firstAttribute="top" secondItem="biZ-qD-E9M" secondAttribute="bottom" constant="505" id="iLm-xh-Szs"/>
                             <constraint firstItem="Mdc-Ca-jWO" firstAttribute="leading" secondItem="FeN-Ap-PDu" secondAttribute="leading" constant="16" id="mFA-On-Q0M"/>
-                            <constraint firstItem="Mdc-Ca-jWO" firstAttribute="top" secondItem="FeN-Ap-PDu" secondAttribute="top" constant="265" id="uVC-8o-jeM"/>
+                            <constraint firstItem="Mdc-Ca-jWO" firstAttribute="top" secondItem="FeN-Ap-PDu" secondAttribute="top" constant="19" id="uVC-8o-jeM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FeN-Ap-PDu"/>
                     </view>
+                    <navigationItem key="navigationItem" id="QMH-cf-z2d"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mFK-ma-Bud" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3004" y="105"/>
+            <point key="canvasLocation" x="2078" y="92"/>
         </scene>
         <!--Wifi View Controller-->
         <scene sceneID="CvE-Da-DfB">
@@ -282,7 +280,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OLK-fl-0Rf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3844" y="103.44827586206897"/>
+            <point key="canvasLocation" x="3396" y="92"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9vW-a6-aqu">

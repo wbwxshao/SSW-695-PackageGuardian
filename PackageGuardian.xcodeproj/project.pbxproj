@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18891555235CE53F00216811 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18891554235CE53F00216811 /* GoogleService-Info.plist */; };
+		18891556235CE53F00216811 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18891554235CE53F00216811 /* GoogleService-Info.plist */; };
+		18891557235CE53F00216811 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18891554235CE53F00216811 /* GoogleService-Info.plist */; };
 		1C85CAD96CB3C82673E78358 /* Pods_PackageGuardianTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54534A46D40EDBF913DDB7FD /* Pods_PackageGuardianTests.framework */; };
 		2279CF32BBB0A64EA22543EC /* Pods_PackageGuardianUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4FEFF57CF1632F8C144055 /* Pods_PackageGuardianUITests.framework */; };
 		32512D7F232C7AA100E71DB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32512D7E232C7AA100E71DB5 /* AppDelegate.swift */; };
@@ -42,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		0EF363A3542208F36E7ABC13 /* Pods-PackageGuardianUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PackageGuardianUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PackageGuardianUITests/Pods-PackageGuardianUITests.release.xcconfig"; sourceTree = "<group>"; };
+		18891554235CE53F00216811 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2289A18FB4D039D566822BB6 /* Pods-PackageGuardian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PackageGuardian.release.xcconfig"; path = "Pods/Target Support Files/Pods-PackageGuardian/Pods-PackageGuardian.release.xcconfig"; sourceTree = "<group>"; };
 		32512D7B232C7AA100E71DB5 /* PackageGuardian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PackageGuardian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32512D7E232C7AA100E71DB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,10 +138,11 @@
 		32512D7D232C7AA100E71DB5 /* PackageGuardian */ = {
 			isa = PBXGroup;
 			children = (
-				32512D7E232C7AA100E71DB5 /* AppDelegate.swift */,
+				18891554235CE53F00216811 /* GoogleService-Info.plist */,
 				32512D80232C7AA100E71DB5 /* ViewController.swift */,
 				32512D82232C7AA100E71DB5 /* Main.storyboard */,
 				327AEE1B2356AF9500A55316 /* DeactivateViewController.swift */,
+				32512D7E232C7AA100E71DB5 /* AppDelegate.swift */,
 				328A4CC2233CFD6B00A1CC3F /* WifiViewController.swift */,
 				32512DAC232C7F4800E71DB5 /* ActivateViewController.swift */,
 				32512D85232C7AA200E71DB5 /* Assets.xcassets */,
@@ -287,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32512D89232C7AA200E71DB5 /* LaunchScreen.storyboard in Resources */,
+				18891555235CE53F00216811 /* GoogleService-Info.plist in Resources */,
 				32512D86232C7AA200E71DB5 /* Assets.xcassets in Resources */,
 				32512D84232C7AA100E71DB5 /* Main.storyboard in Resources */,
 			);
@@ -296,6 +302,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18891556235CE53F00216811 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +310,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18891557235CE53F00216811 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +394,9 @@
 				"${PODS_ROOT}/Target Support Files/Pods-PackageGuardian/Pods-PackageGuardian-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaMQTT/CocoaMQTT.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -393,6 +404,9 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaMQTT.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
