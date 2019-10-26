@@ -18,42 +18,47 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString(address) { (placemarks, error) in
-            guard
-                let placemarks = placemarks,
-                let lat = placemarks.first?.location?.coordinate.latitude,
-                let log = placemarks.first?.location?.coordinate.longitude
-            else {
-                // handle no location found
-                return
-            }
-            var combined = "\(lat),\(log)"
-            var info: [String: String] = [
-                       "name": self.nameField.text!,
-                       "phone": self.phoneField.text!,
-                       "address": self.addressField.text!,
-                       "coordinates": combined
-                   ]
-                   var ref: DatabaseReference!
-                   ref = Database.database().reference()
-                   ref.child("user").child("users").observe(.value, with: { (data) in
-                       let result = data.value as! String
-                       
-                   })
+        
+    }
+    @IBAction func registerButton(_ sender: Any) {
+        guard
+            let name = nameField.text,
+            let phone = phoneField.text,
+            let address = addressField.text
+        else {
+            self.alert(message: "Please fill all the field before register!")
+            return
         }
-       
+        let geoCoder = CLGeocoder()
+         geoCoder.geocodeAddressString(address) { (placemarks, error) in
+             guard
+                 let placemarks = placemarks,
+                 let lat = placemarks.first?.location?.coordinate.latitude,
+                 let log = placemarks.first?.location?.coordinate.longitude
+             else {
+                 self.alert(message: "No location found!")
+                 return
+             }
+             var combined = "\(lat),\(log)"
+             var info: [String: String] = [
+                        "name": self.nameField.text!,
+                        "phone": self.phoneField.text!,
+                        "address": self.addressField.text!,
+                        "coordinates": combined
+                    ]
+             var ref: DatabaseReference!
+             ref = Database.database().reference()
+             ref.child("users").child(self.nameField.text!).setValue(info)
+            self.alert(message: "Successfully registered!")
+           
+         }
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func alert(message:String){
+        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
-    */
 
 }

@@ -177,6 +177,9 @@
                                     <constraint firstAttribute="height" constant="30" id="hxq-gx-cwJ"/>
                                 </constraints>
                                 <state key="normal" title="Register"/>
+                                <connections>
+                                    <action selector="registerButton:" destination="2cw-8G-7M9" eventType="touchUpInside" id="xZb-tA-Wd0"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your address as street, city, state." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6LK-MT-bxF">
                                 <rect key="frame" x="16" y="352" width="343" height="43"/>
