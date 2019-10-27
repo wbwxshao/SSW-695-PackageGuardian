@@ -21,23 +21,12 @@ class WifiViewController: ViewController {
     
 
     @IBAction func connect(_ sender: Any) {
-        let geoCoder = CLGeocoder()
-        guard
-            let address = self.addressText.text
-        else{
-            alert(message: "Please choose the address!")
-            return
-        }
-       
-        print(lat, log)
+ 
         mqttClient.connect()
         mqttClient.publish("rpi/gpio", withString: "on")
         mqttClient.publish("gps/lat", withString: String(format:"%f", lat))
         mqttClient.publish("gps/log", withString: String(format:"%f", log))
         self.alert(message: "Location \(lat), \(log) has been sent and GPS is activated!")
-        
-        
-        
     }
     func alert(message:String){
         let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
