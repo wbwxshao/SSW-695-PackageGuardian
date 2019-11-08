@@ -9,20 +9,25 @@ import os
 import glob
 import time
 import RPi.GPIO as GPIO
-
+LAT = ''
+LOG = ''
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
 def connectionStatus(client, userdata, flags, rc):
     mqttClient.subscribe("rpi/gpio")
-    mqttClient.subscribe("gps/lat")
 def messageDecoder(client, userdata, msg):
+    global LAT
+    global LOG
     message = msg.payload.decode(encoding='UTF-8')
+    info = message.split() # ["ON", ]
     print(message)
-    if message == "on":
+    if info[0] == "on":
+        LAT = info[1]
+        LOG = info[2]
         runGPS()
         print("GPS is ON!")
-    elif message == "off":
+    elif info[0] == "off":
         shutdownGPS()
         print("GPS is OFF!")
     else:
@@ -40,9 +45,9 @@ def runGPS():
         line = readString()
         lines = line.split(",")
         if checksum(line):
-            
             if lines[0] == "GPRMC":
                 getCode(lines)
+                print("got into runGPS, passed!")
                 pass
     except KeyboardInterrupt:
         print('Exiting Script')
@@ -97,14 +102,18 @@ def getCode(lines):
     #print("Lat,Long: ", latlng[0], lines[4], ", ", latlng[1], lines[6])
     lat = float(latlng[0])
     lng = float(latlng[1])
+    print("got into getCode")
     calculateDistance(lat, lng)
 
 def calculateDistance(lat, lng):
+
+    global LAT
+    global LOG
     R = 6373.0
     lat1 = radians(lat)
     lon1 = radians(lng)
-    lat2 = radians(40.7448)
-    lon2 = radians(74.0256)
+    lat2 = radians(LAT)
+    lon2 = radians(LOG)
     dlon = lon2 - lon1
     dlat = lat2 - lat1
     a = sin(dlat / 2)**2 + cos(lat1) * cos(lat2) * sin(dlon / 2)**2
