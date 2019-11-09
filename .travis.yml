@@ -3,13 +3,15 @@ matrix:
     - language: python
       python: 3.7
       dist: xenial
-      install:
+    - os: linux
+      arch: arm64
+    - install:
         - pip install paho-mqtt
         - pip install RPi.GPIO
         - pip install serial
-      before_script:
+    - before_script:
         - cd Pi
-      script:
+    - script:
         - python -m unittest discover
 
 #    - language: swift
