@@ -1,10 +1,9 @@
 matrix:
   include:
+    - arch: arm64
     - language: python
       python: 3.7
       dist: xenial
-    - os: linux
-      arch: arm64
       install:
         - pip install paho-mqtt
         - pip install RPi.GPIO
