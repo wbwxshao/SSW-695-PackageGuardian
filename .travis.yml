@@ -3,6 +3,10 @@ matrix:
     - language: python
       python: 3.7
       dist: xenial
+      install:
+        - pip install paho-mqtt
+        - pip install RPi.GPIO
+        - pip install serial
       before_script:
         - cd Pi
       script:
