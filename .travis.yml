@@ -5,13 +5,13 @@ matrix:
       dist: xenial
     - os: linux
       arch: arm64
-    - install:
+      install:
         - pip install paho-mqtt
         - pip install RPi.GPIO
         - pip install serial
-    - before_script:
+      before_script:
         - cd Pi
-    - script:
+      script:
         - python -m unittest discover
 
 #    - language: swift
