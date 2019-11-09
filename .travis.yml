@@ -6,7 +6,7 @@ matrix:
       before_script:
         - cd Pi
       script:
-        - python -m unittest discover
+        - python -m unittest discover -s /p_test
 
 #    - language: swift
 #      os: osx
