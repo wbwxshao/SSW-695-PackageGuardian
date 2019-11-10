@@ -57,7 +57,11 @@ class RegisterViewController: UIViewController {
     
     func alert(message:String){
         let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+            UIAlertAction in
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
 
