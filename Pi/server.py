@@ -47,7 +47,6 @@ def runGPS():
         if checksum(line):
             if lines[0] == "GPRMC":
                 getCode(lines)
-                print("got into runGPS, passed!")
                 pass
     except KeyboardInterrupt:
         print('Exiting Script')
@@ -102,18 +101,16 @@ def getCode(lines):
     #print("Lat,Long: ", latlng[0], lines[4], ", ", latlng[1], lines[6])
     lat = float(latlng[0])
     lng = float(latlng[1])
-    print("got into getCode")
     calculateDistance(lat, lng)
 
 def calculateDistance(lat, lng):
-
     global LAT
     global LOG
     R = 6373.0
     lat1 = radians(lat)
     lon1 = radians(lng)
-    lat2 = radians(LAT)
-    lon2 = radians(LOG)
+    lat2 = radians(float(LAT))
+    lon2 = radians(float(LOG))
     dlon = lon2 - lon1
     dlat = lat2 - lat1
     a = sin(dlat / 2)**2 + cos(lat1) * cos(lat2) * sin(dlon / 2)**2
