@@ -9,22 +9,31 @@ import os
 import glob
 import time
 import RPi.GPIO as GPIO
+import threading
 
+LAT = ''
+LOG = ''
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
 def connectionStatus(client, userdata, flags, rc):
     mqttClient.subscribe("rpi/gpio")
-    mqttClient.subscribe("gps/lat")
 def messageDecoder(client, userdata, msg):
+    global LAT
+    global LOG
     message = msg.payload.decode(encoding='UTF-8')
+    info = message.split() # ["ON", ]
     print(message)
-    if message == "on":
-        runGPS()
-        print("GPS is ON!")
-    elif message == "off":
+    GPS_thread = threading.Thread(target = runGPS)
+    if info[0] == "on":
+        LAT = info[1]
+        LOG = info[2]
+        GPS_thread.start() 
+    elif info[0] == "off":
         shutdownGPS()
         print("GPS is OFF!")
+        GPS_thread.terminate()
+        
     else:
         print("Unknown message!")
         
@@ -40,9 +49,9 @@ def runGPS():
         line = readString()
         lines = line.split(",")
         if checksum(line):
-            
             if lines[0] == "GPRMC":
                 getCode(lines)
+                print("GPS is on!")
                 pass
     except KeyboardInterrupt:
         print('Exiting Script')
@@ -93,18 +102,22 @@ def getLatLng(latString, lngString):
     lng = lngString[:3].lstrip('0') + "." + "%.7s" % str(float(lngString[3:]) * 1.0 / 60.0).lstrip("0.")
     return lat, lng
 def getCode(lines):
-    latlng = getLatLng(lines[3], lines[5])
-    #print("Lat,Long: ", latlng[0], lines[4], ", ", latlng[1], lines[6])
-    lat = float(latlng[0])
-    lng = float(latlng[1])
-    calculateDistance(lat, lng)
-
+    while 1: 
+        latlng = getLatLng(lines[3], lines[5])
+        #print("Lat,Long: ", latlng[0], lines[4], ", ", latlng[1], lines[6])
+        lat = float(latlng[0])
+        lng = float(latlng[1])
+        calculateDistance(lat, lng)
+        time.sleep(5)
+        
 def calculateDistance(lat, lng):
+    global LAT
+    global LOG
     R = 6373.0
     lat1 = radians(lat)
     lon1 = radians(lng)
-    lat2 = radians(40.7448)
-    lon2 = radians(74.0256)
+    lat2 = radians(float(LAT))
+    lon2 = radians(float(LOG))
     dlon = lon2 - lon1
     dlat = lat2 - lat1
     a = sin(dlat / 2)**2 + cos(lat1) * cos(lat2) * sin(dlon / 2)**2
