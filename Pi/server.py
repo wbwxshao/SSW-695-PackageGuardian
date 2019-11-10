@@ -9,6 +9,8 @@ import os
 import glob
 import time
 import RPi.GPIO as GPIO
+import threading
+
 LAT = ''
 LOG = ''
 os.system('modprobe w1-gpio')
@@ -22,14 +24,16 @@ def messageDecoder(client, userdata, msg):
     message = msg.payload.decode(encoding='UTF-8')
     info = message.split() # ["ON", ]
     print(message)
+    GPS_thread = threading.Thread(target = runGPS)
     if info[0] == "on":
         LAT = info[1]
         LOG = info[2]
-        runGPS()
-        print("GPS is ON!")
+        GPS_thread.start() 
     elif info[0] == "off":
         shutdownGPS()
         print("GPS is OFF!")
+        GPS_thread.terminate()
+        
     else:
         print("Unknown message!")
         
@@ -47,6 +51,7 @@ def runGPS():
         if checksum(line):
             if lines[0] == "GPRMC":
                 getCode(lines)
+                print("GPS is on!")
                 pass
     except KeyboardInterrupt:
         print('Exiting Script')
@@ -97,12 +102,14 @@ def getLatLng(latString, lngString):
     lng = lngString[:3].lstrip('0') + "." + "%.7s" % str(float(lngString[3:]) * 1.0 / 60.0).lstrip("0.")
     return lat, lng
 def getCode(lines):
-    latlng = getLatLng(lines[3], lines[5])
-    #print("Lat,Long: ", latlng[0], lines[4], ", ", latlng[1], lines[6])
-    lat = float(latlng[0])
-    lng = float(latlng[1])
-    calculateDistance(lat, lng)
-
+    while 1: 
+        latlng = getLatLng(lines[3], lines[5])
+        #print("Lat,Long: ", latlng[0], lines[4], ", ", latlng[1], lines[6])
+        lat = float(latlng[0])
+        lng = float(latlng[1])
+        calculateDistance(lat, lng)
+        time.sleep(5)
+        
 def calculateDistance(lat, lng):
     global LAT
     global LOG
