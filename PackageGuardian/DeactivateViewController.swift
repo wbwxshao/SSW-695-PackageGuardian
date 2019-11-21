@@ -17,8 +17,8 @@ class DeactivateViewController: ViewController {
     
     @IBAction func deactivate(_ sender: Any) {
         mqttClient.connect()
-        let message = "off" + codeFromDatabase
-        mqttClient.publish("rpi/gpio", withString: "off")
+        let message = "off" + " " + codeFromDatabase
+        mqttClient.publish("rpi/gpio", withString: message)
     }
     
     /*

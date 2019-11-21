@@ -42,6 +42,7 @@ class LoginViewController: UIViewController {
             let value = snapshot.value as? NSDictionary
             let receivedPass = value?["pass"] as? String ?? ""
             codeFromDatabase = value?["code"] as? String ?? ""
+            print("code is \(codeFromDatabase)")
             if(pass == receivedPass)
             {
                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "deactivate")
