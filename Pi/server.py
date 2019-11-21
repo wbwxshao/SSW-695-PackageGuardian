@@ -10,10 +10,14 @@ import glob
 import time
 import RPi.GPIO as GPIO
 import threading
+import mpu
+from geopy.distance import geodesic
 
 LAT = ''
 LOG = ''
 STATUS = ''
+CODE = ''
+CODE2 = ''
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
@@ -23,16 +27,22 @@ def messageDecoder(client, userdata, msg):
     global LAT
     global LOG
     global STATUS
+    global CODE
+    global CODE2
     message = msg.payload.decode(encoding='UTF-8')
     info = message.split() # ["ON", ]
-    print(message)
+
     GPS_thread = threading.Thread(target = runGPS)
+    print(info)
+    STATUS= info[0]
     if info[0] == "on":
         LAT = info[1]
         LOG = info[2]
+        CODE = info[3]
         STATUS = 'on'
         GPS_thread.start() 
     elif info[0] == "off":
+        CODE2 = info[1]
         shutdownGPS()
         STATUS= 'off'
         print("GPS is OFF!")
@@ -42,23 +52,30 @@ def messageDecoder(client, userdata, msg):
         print("Unknown message!")
         
 def shutdownGPS():
-    GPIO.output(14, GPIO.LOW)
-    GPIO.output(15, GPIO.LOW)
-    GPIO.output(18, GPIO.LOW)
-    GPIO.output(23, GPIO.LOW)
+    global CODE
+    global CODE2
+    if CODE != CODE2:
+        print("The code is incorrect!")
+    else:
+        GPIO.output(14, GPIO.LOW)
+        GPIO.output(15, GPIO.LOW)
+        GPIO.output(18, GPIO.LOW)
+        GPIO.output(23, GPIO.LOW)
     
 def runGPS():
-    #ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)  # Open Serial port
-    try:
-        line = readString()
-        lines = line.split(",")
-        if checksum(line):
-            if lines[0] == "GPRMC":
-                getCode(lines)
-                print("GPS is on!")
-                pass
-    except KeyboardInterrupt:
-        print('Exiting Script')
+    global STATUS
+    while STATUS!='off':
+        try:
+            line = readString()
+            lines = line.split(",")
+            if checksum(line):
+                if lines[0] == "GPRMC":
+                    getCode(lines)
+                    pass
+            else:
+                print("GPS error")
+        except KeyboardInterrupt:
+            print('Exiting Script')
 
 def checksum(line):
     checkString = line.partition("*")
@@ -106,29 +123,24 @@ def getLatLng(latString, lngString):
     lng = lngString[:3].lstrip('0') + "." + "%.7s" % str(float(lngString[3:]) * 1.0 / 60.0).lstrip("0.")
     return lat, lng
 def getCode(lines):
-    global STATUS 
-    while STATUS!='off':
-        latlng = getLatLng(lines[3], lines[5])
-        #print("Lat,Long: ", latlng[0], lines[4], ", ", latlng[1], lines[6])
-        lat = float(latlng[0])
-        lng = float(latlng[1])
-        calculateDistance(lat, lng)
-        time.sleep(5)
+    
+    latlng = getLatLng(lines[3], lines[5])
+    #print("Lat,Long: ", latlng[0], lines[4], ", ", latlng[1], lines[6])
+    lat = float(latlng[0])
+    lng = float(latlng[1])
+    calculateDistance(lat, lng)
+    time.sleep(5)
         
 def calculateDistance(lat, lng):
     global LAT
     global LOG
-    R = 6373.0
-    lat1 = radians(lat)
-    lon1 = radians(lng)
-    lat2 = radians(float(LAT))
-    lon2 = radians(float(LOG))
-    dlon = lon2 - lon1
-    dlat = lat2 - lat1
-    a = sin(dlat / 2)**2 + cos(lat1) * cos(lat2) * sin(dlon / 2)**2
-    c = 2 * atan2(sqrt(a), sqrt(1 - a))
-    distance = R * c * 1000
-    print("The distance between current location and *** is {0} m. ".format(distance))
+    lat2 = float(LAT)
+    lon2 = float(LOG)
+    #distance = mpu.haversine_distance((lat, lng), (lat2, lon2))
+    origin = (lat, -lng)  # (latitude, longitude) don't confuse
+    dist = (lat2, lon2)
+    distance = geodesic(origin, dist).meters
+    print("Distance is ", distance)
     if distance > 100:
         GPIO.setup(18,GPIO.OUT)
         GPIO.output(18, GPIO.HIGH)
