@@ -13,6 +13,7 @@ import threading
 
 LAT = ''
 LOG = ''
+STATUS = ''
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
@@ -21,6 +22,7 @@ def connectionStatus(client, userdata, flags, rc):
 def messageDecoder(client, userdata, msg):
     global LAT
     global LOG
+    global STATUS
     message = msg.payload.decode(encoding='UTF-8')
     info = message.split() # ["ON", ]
     print(message)
@@ -28,9 +30,11 @@ def messageDecoder(client, userdata, msg):
     if info[0] == "on":
         LAT = info[1]
         LOG = info[2]
+        STATUS = 'on'
         GPS_thread.start() 
     elif info[0] == "off":
         shutdownGPS()
+        STATUS= 'off'
         print("GPS is OFF!")
         GPS_thread.terminate()
         
@@ -102,7 +106,8 @@ def getLatLng(latString, lngString):
     lng = lngString[:3].lstrip('0') + "." + "%.7s" % str(float(lngString[3:]) * 1.0 / 60.0).lstrip("0.")
     return lat, lng
 def getCode(lines):
-    while 1: 
+    global STATUS 
+    while STATUS!='off':
         latlng = getLatLng(lines[3], lines[5])
         #print("Lat,Long: ", latlng[0], lines[4], ", ", latlng[1], lines[6])
         lat = float(latlng[0])
