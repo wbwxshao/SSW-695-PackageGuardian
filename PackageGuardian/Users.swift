@@ -16,14 +16,16 @@ class Users {
     var address : String
     var coordinates : String
     var phone : Any
-
-    init(name: String, address: String, coordinates: String, phone: String) {
+    var code : String
+    var pass : String
+    init(name: String, address: String, coordinates: String, phone: String, code:String, pass:String) {
         self.ref = nil
         self.name = name
         self.address = address
         self.coordinates = coordinates
         self.phone = phone
-
+        self.code = code
+        self.pass = pass
     }
     typealias CompletionHandler = (_ success:Bool) -> Void
     init?(snapshot: DataSnapshot)
@@ -34,7 +36,9 @@ class Users {
         let name = value["name"] as? String,
         let address = value["address"] as? String,
         let coordinates = value["coordinates"] as? String,
-        let phone = value["phone"] as? Any
+        let phone = value["phone"] as? Any,
+        let code = value["code"] as? String,
+        let pass = value["pass"] as? String
         else{
             return nil
         }
@@ -44,6 +48,8 @@ class Users {
         self.address = address
         self.coordinates = coordinates
         self.phone = phone
+        self.code = code
+        self.pass = pass
     }
     
 
@@ -53,7 +59,9 @@ class Users {
             "name": name,
             "address": address,
             "coordinates": coordinates,
-            "phone": phone
+            "phone": phone,
+            "code" : code,
+            "pass" : pass
         ]
     }
 }

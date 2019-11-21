@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		11E20E45BB34E3D93E4CF5CD /* Pods_PackageGuardianTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 050DF9487D0DBE82D40A5449 /* Pods_PackageGuardianTests.framework */; };
 		18E71E972364989100EEA27E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71E962364989100EEA27E /* RegisterViewController.swift */; };
+		322F2B932380C3960083DDA3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322F2B922380C3960083DDA3 /* LoginViewController.swift */; };
 		32512D7F232C7AA100E71DB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32512D7E232C7AA100E71DB5 /* AppDelegate.swift */; };
 		32512D81232C7AA100E71DB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32512D80232C7AA100E71DB5 /* ViewController.swift */; };
 		32512D84232C7AA100E71DB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32512D82232C7AA100E71DB5 /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 		18E71E962364989100EEA27E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		1C69475D93EDD0B01CDEA009 /* Pods_PackageGuardian.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PackageGuardian.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CAE15DE43DD9D569CD5FE52 /* Pods-PackageGuardianTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PackageGuardianTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PackageGuardianTests/Pods-PackageGuardianTests.release.xcconfig"; sourceTree = "<group>"; };
+		322F2B922380C3960083DDA3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		32512D7B232C7AA100E71DB5 /* PackageGuardian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PackageGuardian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32512D7E232C7AA100E71DB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32512D80232C7AA100E71DB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				32E72DFE235EA8970002E609 /* AddressTableViewCell.swift */,
 				32E72DFC235EA5EA0002E609 /* Users.swift */,
 				32512D82232C7AA100E71DB5 /* Main.storyboard */,
+				322F2B922380C3960083DDA3 /* LoginViewController.swift */,
 				18E71E962364989100EEA27E /* RegisterViewController.swift */,
 				327AEE1B2356AF9500A55316 /* DeactivateViewController.swift */,
 				32512D7E232C7AA100E71DB5 /* AppDelegate.swift */,
@@ -444,6 +447,7 @@
 				32512DAD232C7F4800E71DB5 /* ActivateViewController.swift in Sources */,
 				32512D7F232C7AA100E71DB5 /* AppDelegate.swift in Sources */,
 				32E72DFF235EA8970002E609 /* AddressTableViewCell.swift in Sources */,
+				322F2B932380C3960083DDA3 /* LoginViewController.swift in Sources */,
 				32E72DFD235EA5EA0002E609 /* Users.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

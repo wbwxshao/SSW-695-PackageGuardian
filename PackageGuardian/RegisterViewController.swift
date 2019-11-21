@@ -15,7 +15,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var phoneField: UITextField!
     @IBOutlet weak var addressField: UITextField!
-    
+    @IBOutlet weak var password: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +24,8 @@ class RegisterViewController: UIViewController {
         guard
             let name = nameField.text,
             let phone = phoneField.text,
-            let address = addressField.text
+            let address = addressField.text,
+            let pass = self.password.text
         else {
             self.alert(message: "Please fill all the field before register!")
             return
@@ -39,12 +40,16 @@ class RegisterViewController: UIViewController {
                  self.alert(message: "No location found!")
                  return
              }
+            let code = String(Int.random(in: 0..<999999999))
+            
              var combined = "\(lat),\(log)"
              var info: [String: String] = [
                         "name": self.nameField.text!,
                         "phone": self.phoneField.text!,
                         "address": self.addressField.text!,
-                        "coordinates": combined
+                        "coordinates": combined,
+                        "code":code,
+                        "pass":pass
                     ]
              var ref: DatabaseReference!
              ref = Database.database().reference()

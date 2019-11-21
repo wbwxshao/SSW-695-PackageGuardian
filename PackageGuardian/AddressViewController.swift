@@ -13,7 +13,7 @@ import MBProgressHUD
 var lat = ""
 var log = ""
 var address = ""
-
+var code = ""
 class AddressViewController: ViewController, UITableViewDelegate, UITableViewDataSource {
     
     var lists = [Users]()
@@ -68,5 +68,6 @@ class AddressViewController: ViewController, UITableViewDelegate, UITableViewDat
         let coor = self.lists[indexPath.row].coordinates.split{$0 == ","}.map(String.init)
         lat = coor[0]
         log = coor[1]
+        code = self.lists[indexPath.row].code
     }
 }
