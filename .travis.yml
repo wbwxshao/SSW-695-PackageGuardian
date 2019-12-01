@@ -8,6 +8,7 @@ matrix:
       install:
         - pip install paho-mqtt
         - pip install serial
+        - pip install RPi.GPIO
       script:
         - python -m unittest discover
 
