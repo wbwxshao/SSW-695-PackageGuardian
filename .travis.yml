@@ -7,6 +7,7 @@ matrix:
         - cd Pi
       install:
         - pip install paho-mqtt
+        - pip install serial
       script:
         - python -m unittest discover
 
