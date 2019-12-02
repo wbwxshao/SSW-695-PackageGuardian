@@ -21,7 +21,7 @@ CODE2 = ''
 NAME = ''
 TRACE = {}
 TRACE['trace'] = []
-DATA ={}
+DATA = {}
 #DATA['data'] = []
 COUNTER = 0
 os.system('modprobe w1-gpio')
@@ -54,7 +54,7 @@ def messageDecoder(client, userdata, msg):
         'name': NAME
         })
         print(DATA) """
-        DATA[NAME] = {'trace': {}}
+        DATA[NAME] = {}
         GPS_thread.start() 
     elif info[0] == "off":
         CODE2 = info[1]
@@ -173,7 +173,7 @@ def write_json(lat,lon):
     #trace = {}
     now = datetime.now()
     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-    DATA[NAME]['trace'][COUNTER] = {'timestamp':dt_string, 'lat':lat, 'lon':lon}
+    DATA[NAME][COUNTER] = {'timestamp':dt_string, 'lat':lat, 'lon':lon}
     COUNTER += 1
 """     #trace['trace'] = []
     TRACE['trace'].append({
