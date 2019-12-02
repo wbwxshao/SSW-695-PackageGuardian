@@ -23,7 +23,7 @@ class WifiViewController: ViewController {
     @IBAction func connect(_ sender: Any) {
  
         mqttClient.connect()
-        let res = "on "+lat+" "+log + " " + code
+        let res = "on "+lat+" "+log + " " + code + " " + name
         mqttClient.publish("rpi/gpio", withString: res)
         self.alert(message: "Location \(lat), \(log) has been sent and GPS is activated!")
     }

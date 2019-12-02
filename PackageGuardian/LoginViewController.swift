@@ -45,6 +45,7 @@ class LoginViewController: UIViewController {
             print("code is \(codeFromDatabase)")
             if(pass == receivedPass)
             {
+                
                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "deactivate")
                self.navigationController?.pushViewController(vc, animated: true)
             }else{

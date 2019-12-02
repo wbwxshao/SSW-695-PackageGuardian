@@ -14,6 +14,7 @@ var lat = ""
 var log = ""
 var address = ""
 var code = ""
+var name = ""
 class AddressViewController: ViewController, UITableViewDelegate, UITableViewDataSource {
     
     var lists = [Users]()
@@ -68,6 +69,7 @@ class AddressViewController: ViewController, UITableViewDelegate, UITableViewDat
         let coor = self.lists[indexPath.row].coordinates.split{$0 == ","}.map(String.init)
         lat = coor[0]
         log = coor[1]
+        name = self.lists[indexPath.row].name
         code = self.lists[indexPath.row].code
     }
 }
