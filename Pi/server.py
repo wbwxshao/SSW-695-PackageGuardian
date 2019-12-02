@@ -4,20 +4,25 @@
 import paho.mqtt.client as mqtt
 import time
 import serial
-from math import sin, cos, sqrt, atan2, radians
 import os
 import glob
 import time
 import RPi.GPIO as GPIO
 import threading
-import mpu
+import json
 from geopy.distance import geodesic
+from datetime import datetime
 
 LAT = ''
 LOG = ''
 STATUS = ''
 CODE = ''
 CODE2 = ''
+NAME = ''
+TRACE = {}
+TRACE['trace'] = []
+DATA ={}
+DATA['data'] = []
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
@@ -29,6 +34,8 @@ def messageDecoder(client, userdata, msg):
     global STATUS
     global CODE
     global CODE2
+    global NAME
+    global DATA
     message = msg.payload.decode(encoding='UTF-8')
     info = message.split() # ["ON", ]
 
@@ -39,7 +46,13 @@ def messageDecoder(client, userdata, msg):
         LAT = info[1]
         LOG = info[2]
         CODE = info[3]
+        NAME = info[4]
         STATUS = 'on'
+        
+        DATA['data'].append({
+        'name': NAME
+        })
+        print(DATA)
         GPS_thread.start() 
     elif info[0] == "off":
         CODE2 = info[1]
@@ -47,7 +60,7 @@ def messageDecoder(client, userdata, msg):
         STATUS= 'off'
         print("GPS is OFF!")
         GPS_thread.terminate()
-        
+        write_to_file()
     else:
         print("Unknown message!")
         
@@ -119,11 +132,12 @@ def getTime(string, format, returnFormat):
 
 
 def getLatLng(latString, lngString):
+    print("latstring is ", latString[2:])
     lat = latString[:2].lstrip('0') + "." + "%.7s" % str(float(latString[2:]) * 1.0 / 60.0).lstrip("0.")
     lng = lngString[:3].lstrip('0') + "." + "%.7s" % str(float(lngString[3:]) * 1.0 / 60.0).lstrip("0.")
     return lat, lng
-def getCode(lines):
     
+def getCode(lines):
     latlng = getLatLng(lines[3], lines[5])
     #print("Lat,Long: ", latlng[0], lines[4], ", ", latlng[1], lines[6])
     lat = float(latlng[0])
@@ -136,6 +150,7 @@ def calculateDistance(lat, lng):
     global LOG
     lat2 = float(LAT)
     lon2 = float(LOG)
+    write_json(lat, lng)    #write trace to a json file
     #distance = mpu.haversine_distance((lat, lng), (lat2, lon2))
     origin = (lat, -lng)  # (latitude, longitude) don't confuse
     dist = (lat2, lon2)
@@ -146,7 +161,38 @@ def calculateDistance(lat, lng):
         GPIO.output(18, GPIO.HIGH)
         GPIO.setup(23,GPIO.OUT)
         GPIO.output(23, GPIO.HIGH)
+        
+def write_json(lat,lon):
+    global NAME
+    global TRACE
+    global DATA
+    #data = {}
+    #trace = {}
+    now = datetime.now()
+    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+    #trace['trace'] = []
+    TRACE['trace'].append({
+        'timestamp':dt_string,
+        'lat':lat,
+        'lon':lon
+    })
+    #data['data'] = []
+    '''DATA['data'].append({
+        'name': NAME,
+        'trace': TRACE
+    })'''
+    DATA['data'].append({
+    'trace': TRACE
+    })
 
+def write_to_file():
+    global NAME
+    filename = NAME + '.json'
+    with open(filename, 'a') as outfile:
+        json.dump(DATA, outfile)
+    
+    
+    
 if __name__ == '__main__':
     clientName = "RPI"
     serverAddress = "192.168.4.1"
