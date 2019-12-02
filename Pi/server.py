@@ -174,6 +174,7 @@ def write_json(lat,lon):
     now = datetime.now()
     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
     DATA[NAME]['trace'][COUNTER] = {'timestamp':dt_string, 'lat':lat, 'lon':lon}
+    COUNTER += 1
 """     #trace['trace'] = []
     TRACE['trace'].append({
         'timestamp':dt_string,
