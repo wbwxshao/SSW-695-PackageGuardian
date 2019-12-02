@@ -5,6 +5,10 @@ matrix:
       dist: xenial
       before_script:
         - cd Pi
+      install:
+        - pip install paho-mqtt
+        - pip install serial
+        - pip install RPi.GPIO
       script:
         - python -m unittest discover
 
