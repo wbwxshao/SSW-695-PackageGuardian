@@ -180,8 +180,6 @@ def write_to_file():
     with open(filename, 'a') as outfile:
         json.dump(DATA, outfile)
     
-    
-    
 if __name__ == '__main__':
     clientName = "RPI"
     serverAddress = "192.168.4.1"
