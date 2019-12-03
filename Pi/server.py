@@ -148,7 +148,7 @@ def calculateDistance(lat, lng):
     global LOG
     lat2 = float(LAT)
     lon2 = float(LOG)
-    write_json(lat, lng)    #write trace to a json file
+    write_json(lat, -lng)    #write trace to a json file
     #distance = mpu.haversine_distance((lat, lng), (lat2, lon2))
     origin = (lat, -lng)  # (latitude, longitude) don't confuse
     dist = (lat2, lon2)
