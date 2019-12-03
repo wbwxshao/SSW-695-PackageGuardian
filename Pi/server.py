@@ -21,8 +21,9 @@ CODE2 = ''
 NAME = ''
 TRACE = {}
 TRACE['trace'] = []
-DATA ={}
-DATA['data'] = []
+DATA = {}
+#DATA['data'] = []
+COUNTER = 0
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
@@ -48,19 +49,16 @@ def messageDecoder(client, userdata, msg):
         CODE = info[3]
         NAME = info[4]
         STATUS = 'on'
-        
-        DATA['data'].append({
-        'name': NAME
-        })
-        print(DATA)
-        GPS_thread.start() 
+        DATA[NAME] = {}
+        GPS_thread.start()
     elif info[0] == "off":
         CODE2 = info[1]
         shutdownGPS()
         STATUS= 'off'
         print("GPS is OFF!")
-        GPS_thread.terminate()
         write_to_file()
+        GPS_thread.terminate()
+        
     else:
         print("Unknown message!")
         
@@ -166,27 +164,18 @@ def write_json(lat,lon):
     global NAME
     global TRACE
     global DATA
+    global COUNTER
     #data = {}
     #trace = {}
     now = datetime.now()
     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-    #trace['trace'] = []
-    TRACE['trace'].append({
-        'timestamp':dt_string,
-        'lat':lat,
-        'lon':lon
-    })
-    #data['data'] = []
-    '''DATA['data'].append({
-        'name': NAME,
-        'trace': TRACE
-    })'''
-    DATA['data'].append({
-    'trace': TRACE
-    })
+    DATA[NAME][COUNTER] = {'timestamp':dt_string, 'lat':lat, 'lon':lon}
+    COUNTER += 1
 
 def write_to_file():
     global NAME
+    global DATA
+    print("data is ", DATA)
     filename = NAME + '.json'
     with open(filename, 'a') as outfile:
         json.dump(DATA, outfile)
