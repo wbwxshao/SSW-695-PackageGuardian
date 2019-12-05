@@ -153,7 +153,8 @@ def calculateDistance(lat, lng):
     origin = (lat, -lng)  # (latitude, longitude) don't confuse
     dist = (lat2, lon2)
     distance = geodesic(origin, dist).meters
-    print("Distance is ", distance)
+    return distance
+    #print("Distance is ", distance)
     #if distance > 100:
     #    GPIO.setup(18,GPIO.OUT)
     #    GPIO.output(18, GPIO.HIGH)
