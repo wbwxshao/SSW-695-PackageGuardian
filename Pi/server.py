@@ -13,8 +13,8 @@ import json
 from geopy.distance import geodesic
 from datetime import datetime
 
-LAT = ''
-LOG = ''
+LAT = '40.7448' #for testing only, change to empty string before running
+LOG = '74.0256' #for testing only, change to empty string before running
 STATUS = ''
 CODE = ''
 CODE2 = ''
