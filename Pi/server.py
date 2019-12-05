@@ -154,11 +154,11 @@ def calculateDistance(lat, lng):
     dist = (lat2, lon2)
     distance = geodesic(origin, dist).meters
     print("Distance is ", distance)
-    if distance > 100:
-        GPIO.setup(18,GPIO.OUT)
-        GPIO.output(18, GPIO.HIGH)
-        GPIO.setup(23,GPIO.OUT)
-        GPIO.output(23, GPIO.HIGH)
+    #if distance > 100:
+    #    GPIO.setup(18,GPIO.OUT)
+    #    GPIO.output(18, GPIO.HIGH)
+    #    GPIO.setup(23,GPIO.OUT)
+    #    GPIO.output(23, GPIO.HIGH)
         
 def write_json(lat,lon):
     global NAME
