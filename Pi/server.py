@@ -7,7 +7,7 @@ import serial
 import os
 import glob
 import time
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 import threading
 import json
 from geopy.distance import geodesic
