@@ -1,6 +1,4 @@
 """SSW695_Gudian_of_Packages"""
-LAT = 40.7448
-LOG = 74.0256
 
 import unittest
 from server import calculateDistance
