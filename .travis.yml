@@ -9,6 +9,7 @@ matrix:
         - pip install paho-mqtt
         - pip install serial
         - pip install RPi.GPIO
+        - pip install geopy
       script:
         - python -m unittest discover
 
